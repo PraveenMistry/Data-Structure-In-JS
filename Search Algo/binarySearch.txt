@@ -1,0 +1,23 @@
+function binarySearch(array,leftIndex,rightIndex,el){
+	var mid = Math.floor(leftIndex+rightIndex/2);
+	if(el==array[mid]){
+		console.log("match");
+		return mid;
+	}else if(el>array[mid]){
+    	leftIndex = mid+1;
+		binarySearch(array,leftIndex,rightIndex,el);
+	}else if(el<array[mid]){
+    	rightIndex = mid-1;
+		binarySearch(array,leftIndex,rightIndex,el);
+	}else{
+		return -1;
+    }
+}
+var array = [2,5,8,12,15,16,45,67,84];
+var len = array.length;
+console.log("array",array);
+var leftIndex = 0;
+var rightIndex = len;
+var el 	= 15;
+var index = binarySearch(array,leftIndex,rightIndex,el);
+console.log("index",index);

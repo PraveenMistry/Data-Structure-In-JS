@@ -1,0 +1,18 @@
+function getSecondMin(array){
+	var first = 999999999;
+	var second = 99999999;
+	for(var i=0; i<array.length;i++){
+		if(array[i]<first){
+			second = first;
+			first = array[i];
+		}
+		else if(array[i]<second && array[i]!=first){
+			second = array[i];
+		}
+	}
+	return "FirstMin : "+first+", SecondMin : "+second;
+}
+
+var array = [12, 13, 1, 10, 34, 1];
+var result = getSecondMin(array);
+console.log("res",result)

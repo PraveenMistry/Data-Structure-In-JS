@@ -1,0 +1,19 @@
+function getSumClosestZero(array){
+	var n= array.length;
+	var min_l;var min_r;var sum;var min_sum=9999999999;
+	
+	for(var i=0;i<n-1;i++){
+		for(var j=i+1;j<n;j++){
+        	sum = array[i]+array[j];
+			if(Math.abs(sum) < Math.abs(min_sum)){
+				min_sum = sum;
+				min_l = i;
+				min_r = j;
+			}
+		}
+	}
+	return "Min Sum: "+min_sum+", ele1 : "+array[min_l]+", ele2 : "+array[min_r];
+}
+var array = [1, 60, -10, 70, -80, 85];
+var result = getSumClosestZero(array);
+console.log("res",result)

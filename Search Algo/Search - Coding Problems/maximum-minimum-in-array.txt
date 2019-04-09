@@ -1,0 +1,31 @@
+function getMinMax(array){
+	var n = array.length;
+	var min = -1;
+	var max = 9999999;
+	if(n==1){
+		min=array[0];max=array[0]
+		return "Min: "+min+", Max : "+max;
+	}
+	
+	if(array[0]<array[1]){
+		min=array[0];
+		max=array[1];
+	}else if(array[0]>array[1]){
+		min=array[1];
+		max=array[0];		
+	}
+		
+	for(var i=2;i<n;i++){
+		if(array[i]<min){
+			min=array[i];
+		}
+		if(array[i]>max){
+			max=array[i];
+		}
+	}
+	return "Min: "+min+", Max : "+max;
+}
+
+var array  =[1000, 11, 445, 1, 330, 3000];
+var result = getMinMax(array);
+console.log("result",result);

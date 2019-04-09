@@ -1,0 +1,40 @@
+function searchElementInRotateArray(array,l,h,el){
+	if(l>h) {return -1;}
+	var mid = Number(Math.floor((l+h)/2));
+	console.log("mid",mid);
+	console.log("array[mid]",array[mid]);
+	console.log("el",el);
+	
+	if(array[mid]==el){
+		console.log("match",mid);
+		return mid;
+	}
+	// is first half sorted
+	if(array[l]<=array[mid]){
+		console.log("first half");
+		// check key element in first half
+		if(array[l]<=el && el<=array[mid]){
+			return searchElementInRotateArray(array,l,Number(mid-1),el);
+		}else{
+            console.log("second half");
+            // else check in second half
+            return searchElementInRotateArray(array,Number(mid+1),h,el);
+        }
+	}else{
+        // not in first half, search in second half
+        if(array[mid]<=el && array[h]>=el){
+            console.log("Second--0");
+            return searchElementInRotateArray(array,Number(mid+1),h,el);	
+        }else{
+            console.log("Second--1");
+            return searchElementInRotateArray(array,Number(mid-1),h,el);
+        }
+    }
+}
+
+var array = [3,4,5,6,7,8,1,2];
+var n = array.length;
+var el = 5;
+console.log("n",n);
+var index = searchElementInRotateArray(array,0,n-1,el);
+console.log("index",index);

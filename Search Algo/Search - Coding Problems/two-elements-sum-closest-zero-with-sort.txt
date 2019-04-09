@@ -1,0 +1,22 @@
+function getSumClosestZeroSortMethod(array){
+	var sortedArray = array.sort();
+	var l=0;
+	var r=array.length-1;
+	var sum;
+	var min_sum = 999999999;
+	while(l<r){
+		sum = array[l]+array[r];
+        if(Math.abs(sum) < Math.abs(min_sum)){
+			min_sum = sum;
+			min_l = l;
+			min_r = r;
+		}
+		if(sum<0){--r;}
+		else{++l;}
+    }
+	return "Min Sum: "+min_sum+", ele1 : "+array[min_l]+", ele2 : "+array[min_r];
+}
+
+var array = [1, 60, -10, 70, -80, 85];
+var result = getSumClosestZeroSortMethod(array);
+console.log("res",result)

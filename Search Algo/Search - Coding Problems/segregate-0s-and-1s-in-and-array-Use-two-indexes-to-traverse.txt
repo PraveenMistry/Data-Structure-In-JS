@@ -1,0 +1,15 @@
+function segregate0and1(array){
+	var n= array.length;
+	var left = 0;
+	var right = n;
+	var resultArray = [];
+	for(var i=0;i<n;i++){
+		if(array[i]==0){resultArray[left]=0;++left;}else{resultArray[right]=1;--right;}
+	}
+	return resultArray;
+}
+
+
+var array =[0, 1, 0, 1, 1, 1];
+var result = segregate0and1(array);
+console.table(result);

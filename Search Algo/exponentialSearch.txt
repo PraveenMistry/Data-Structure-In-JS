@@ -1,0 +1,31 @@
+function binarySearch(array,leftIndex,rightIndex,el){
+	var mid = Math.floor((leftIndex+rightIndex-1)/2);
+	if(el==array[mid]){
+		console.log("match");
+		return Number(mid);
+	}else if(el>array[mid]){
+    	leftIndex = Number(mid+1);
+		binarySearch(array,leftIndex,rightIndex,el);
+	}else if(el<array[mid]){
+    	rightIndex = Number(mid-1);
+		binarySearch(array,leftIndex,rightIndex,el);
+	}else{
+		return -1;
+    }
+}
+
+function exponentialSearch(array,el,len){
+	if(array[0]==el){return 0;}
+	
+	var i =1;
+	while(i<len && array[i]<=el){i=i*2;}
+	var l = Number((i/2).toFixed());
+	var r = Number(Math.min(i.toFixed(),len));
+	var ind = binarySearch(array,l,r,el);
+	return ind;
+}
+var array = [2,5,8,12,13,15,16,30,39,45,50,55,60,67,84];
+var len = array.length;
+var el 	= 15;
+var index = exponentialSearch(array,el,len);
+console.log("index",index);

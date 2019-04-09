@@ -1,0 +1,12 @@
+function getMissing(array,n){
+	var total = Number((n+1)*(n+2)/2);
+	for(var i=0;i<n;i++){
+		total = Number(total-array[i]);
+	}
+	return total;
+}
+
+var array = [1,2,3,5,6,7,8];
+var n = array.length;
+var missing = getMissing(array,n);
+console.log(missing);
