@@ -20,3 +20,26 @@ function largestSumContiguousSubarray(){
 }
 
 largestSumContiguousSubarray();
+
+
+// DP
+let arr = [-2,1,-3,4,-1,2,1,-5,4]
+let len  = arr.length;
+let sumArray = [];
+let sum = -999;
+
+function largestSumContiguousSubarrayByDP(){
+	sumArray[0] = arr[0] 
+	for(let i=1;i<len;i++){
+		sumArray[i] = Math.max(sumArray[i-1]+arr[i],arr[i]);
+	}
+	for(let j=0;j<sumArray.length-1;j++){
+		if(sum < sumArray[j]){
+			sum = sumArray[j];
+		}
+	}
+	return sum;
+}
+
+
+largestSumContiguousSubarrayByDP();
