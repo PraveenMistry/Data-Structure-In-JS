@@ -1,3 +1,4 @@
-## Basic Coding question and solution in JS
-##### You can add your.
+### Data Structure In JS
+#### Use class to create basic data structures
+
 ##### Feel free to fork and input 
